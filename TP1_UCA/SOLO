@@ -1,0 +1,66 @@
+#include <FastLED.h>
+#include "Adafruit_LTR329_LTR303.h"
+#define NUM_LEDS 21
+#define DATA_PIN 6
+CRGB leds[NUM_LEDS];
+
+Adafruit_LTR303 ltr = Adafruit_LTR303();
+
+void setup(){
+  Serial.begin(115200);
+  delay(10);
+
+  if (! ltr.begin()) {
+    Serial.println("Couldn't find LTR sensor !");
+    while(1)
+      delay(10);
+  }
+  Serial.println("Found LTR sensor!");
+
+  // Vos syntaxes matérielles conservées
+  ltr.setHighThreshold(500);
+  ltr.setLowThreshold(0);
+  ltr.setIntPersistance(1);
+  ltr.enableInterrupt(true);
+
+  FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setBrightness(84);
+  FastLED.clear();
+  FastLED.show();
+} 
+
+void loop() {
+  uint16_t visible_plus_ir;
+  uint16_t ir;
+
+  // On vérifie si une nouvelle mesure est disponible
+  if (ltr.newDataAvailable()) {
+    
+    // On lit les deux canaux
+    bool valid = ltr.readBothChannels(visible_plus_ir, ir);
+    
+    if (valid) {
+      // --- AJOUT : Affichage continu de la luminosité dans le Moniteur Série ---
+      Serial.print("Luminosite actuelle (visible + IR) : ");
+      Serial.println(visible_plus_ir);
+
+      // On vérifie si la luminosité dépasse votre seuil (500)
+      if (visible_plus_ir > 500) {
+        Serial.println(" -> ALERTE : Seuil de 500 lux depasse !");
+
+        // Allumer toutes les LEDs en Rouge
+        for (int i = 0; i < NUM_LEDS; i++) {
+          leds[i] = CRGB::Red;
+        }
+        FastLED.show();
+      } 
+      else {
+        // Éteindre si on est en dessous du seuil
+        FastLED.clear();
+        FastLED.show();
+      }
+    }
+  }
+
+  delay(250); // Mesure toutes les 250ms
+}
