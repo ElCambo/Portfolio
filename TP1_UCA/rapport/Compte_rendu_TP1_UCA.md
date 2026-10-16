@@ -770,17 +770,17 @@ Cible : `rfthings-avr:avr:uca`, version 3.9+ (ATmega328PB), package RFThings AVR
 
 | Sketch | Flash (octets) | RAM (octets) |
 |---|---|---|
-| Blink | 1158 (3 %) | 9 (0 %) |
-| Blink_Millis | 1128 (3 %) | 13 (0 %) |
-| Blink_Mod | 2460 (8 %) | 206 (10 %) |
-| Blink_SerialInput | 2644 (8 %) | 280 (13 %) |
-| Blink_SerialNumber | 2676 (8 %) | 257 (12 %) |
-| Exo1_SeuilLuminosite | 13262 (43 %) | 739 (36 %) |
-| Exo2_Inclinaison | 8100 (26 %) | 527 (25 %) |
-| Exo3_StationMeteo | 12850 (41 %) | 738 (36 %) |
-| Exo4_AlerteIoT | 14290 (46 %) | 660 (32 %) |
-| Exo5_ClignotementAccel | 12000 (39 %) | 657 (32 %) |
-| UCA_Board_KXTJ3 | 8306 (27 %) | 543 (26 %) |
-| UCA_Board_LTR303 | 8280 (26 %) | 530 (25 %) |
-| UCA_Board_RGBLED | 5038 (16 %) | 374 (18 %) |
-| UCA_Board_SHTC3 | 8928 (29 %) | 570 (27 %) |
+| Etape_1_6_Blink | 1158 (3 %) | 9 (0 %) |
+| Etape_3_1_Millis | 1128 (3 %) | 13 (0 %) |
+| Etape_2_1_Sortie_Serie_Blink_Mod | 2460 (8 %) | 206 (10 %) |
+| Etape_2_2_Entree_Serie_1_chiffre | 2644 (8 %) | 280 (13 %) |
+| Etape_2_2_Entree_Serie_plusieurs_chiffres | 2676 (8 %) | 257 (12 %) |
+| Partie_5_I_1_Seuil_Luminosite | 13262 (43 %) | 739 (36 %) |
+| Partie_5_I_2_Detection_Inclinaison | 8100 (26 %) | 527 (25 %) |
+| Partie_5_II_1_Station_Meteo | 12850 (41 %) | 738 (36 %) |
+| Partie_5_II_2_Alerte_IoT | 14290 (46 %) | 660 (32 %) |
+| Partie_5_II_3_Clignotement_Accelerometre | 12000 (39 %) | 657 (32 %) |
+| Etape_4_4_UCA_Board_KXTJ3 | 8306 (27 %) | 543 (26 %) |
+| Etape_4_3_UCA_Board_LTR303 | 8280 (26 %) | 530 (25 %) |
+| Etape_4_5_UCA_Board_RGBLED | 5038 (16 %) | 374 (18 %) |
+| Etape_4_2_UCA_Board_SHTC3 | 8928 (29 %) | 570 (27 %) |
